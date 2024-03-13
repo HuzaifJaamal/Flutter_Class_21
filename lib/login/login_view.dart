@@ -39,8 +39,17 @@ class _LoginViewStateState extends State<LoginViewState> {
   getLoggedInState()async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     
-  isLogin = prefs.getString('isLogin') ?? isLogin;
+    isLogin = prefs.getString('isLogin') ?? isLogin;
     setState(() {});
+  }
+
+  singOut () async{
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // When use the clear method so it remove all thing in the local storage.
+    await prefs.clear();
+    /* // When use the remove method so its remove the particular key.
+    await prefs.remove('isLogin'); */
+
   }
 
   updateData()async{
