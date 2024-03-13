@@ -18,7 +18,7 @@ class _LoginViewStateState extends State<LoginViewState> {
   // Note: We don't make the init function to the "async"
   void initState(){
     super.initState();
-    // fetchInitialData();
+    fetchInitialData();
   }
 
   login() async{
@@ -39,7 +39,7 @@ class _LoginViewStateState extends State<LoginViewState> {
   getLoggedInState()async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     
-    isLogin = prefs.getString('isLogin')!;
+  isLogin = prefs.getString('isLogin') ?? isLogin;
     setState(() {});
   }
 
